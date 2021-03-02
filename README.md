@@ -11,7 +11,26 @@ This style guide was created to provide standards based on the fundamentals of R
 - **Aliases**: Use [`babel-plugin-module-resolver`](https://www.npmjs.com/package/babel-plugin-module-resolver) to create aliases for the domain.
 
 ## Files
-- **Extension**: Use `.tsx` extension for file contains React Element and `.ts` for file javascript without React Element.
+- **Extensions**: Use `.tsx` extension for file contains React Element and `.ts` extension for file javascript without React Element.
 
 ## Component
 - **Location**: All module components located in `./src/components/`
+- **Inheritance**: Extends the component properties from its parrent.
+```typescript
+import React, {ReactNode} from 'react';
+import {Text as TextRN, TextProps as TextPropsRN} from 'react-native'
+
+export interface TextProps extends TextPropsRN {
+  extensionKeyProps: string;
+  children: ReactNode;
+  // more extension properties
+  ...
+}
+
+export default function Text({extensionKeyProps, children, ...props}: TextProps) {
+  // handle the extension properties
+  ...
+
+  return <Text {...props}>{children}</Text>
+}
+```
