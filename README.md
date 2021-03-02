@@ -4,7 +4,7 @@ This style guide was created to provide standards based on the fundamentals of R
 
 ## Basic Rules
 - **Export Component**: Only export one react element per file.
-- **Functional Component**: Use functional component ([hooks](https://reactjs.org/docs/hooks-intro.html)) instead of class component.
+- **Format Component**: Use functional component ([hooks](https://reactjs.org/docs/hooks-intro.html)) instead of class component.
 - **Code Formatter**: Use [`prettier`](https://prettier.io/docs/en/index.html) for code formatter.
 - **Code Rules**: Use [`eslint`](https://eslint.org/) for code rules.
 - **Static Typing**: Use [`typescript`](https://www.typescriptlang.org/) for static typing.
