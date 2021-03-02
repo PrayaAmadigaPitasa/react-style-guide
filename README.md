@@ -98,7 +98,7 @@ This style guide was created to provide standards based on the fundamentals of R
   // good
   let count = 0;
   ```
-- **Var**: Don't use `var` for the variable. Because, var variable can be accessed from outside the block and hard to track and cause confusion.
+- **Var**: Don't use `var` for the variable. This is because the var variable can be accessed from outside the block which causes confusion and is difficult to trace.
 
 ## Types
 - **String, Number and Boolean**: Use `string|number|boolean` instead of `String|Number|Boolean`
@@ -107,7 +107,8 @@ This style guide was created to provide standards based on the fundamentals of R
   const name = "Charlotte"
 
   // good
-  // declaring the type is optional, because typescript will automatically declare the type same as the type of initial value.
+  // declaring the type is optional, because typescript will
+  // automatically declare the type same as the type of initial value.
   const name: string = "Charlotte"
 
   // bad
