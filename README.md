@@ -115,23 +115,37 @@ This style guide was created to provide standards based on the fundamentals of R
   const name: String = "Charlotte"
   ```
 
-- **Array**: Declare the type data array if the initial value is empty.
+- **Array**: 
+  - **Basic**: Use literal syntaxt to crea array and declare the type data array if the initial value is empty.
+    ```typescript
+    // bad
+    const values = new Array();
+    
+    // bad
+    const values = [];
+
+    // good
+    const values = [0];
+
+    // good 
+    const values = ['', 0];
+
+    // good
+    const values: number[] = [];
+    ```
+  - **Populate Values**: Use `Array.from` to populate array values. 
+    ```typescript
+    // good
+    const values = Array.from(['Charlotte', 'Celdric'], (item, index) => `${index}: ${item}`);
+
+    // good
+    const values = Array.from({length: 5}, (_, index) => index);
+    ```
+- **Object**: Use literal syntax to create objects and object must declare the type data from the interface or type. Because, typescript cannot define the type data used of the object except if it's handled by generic. The other reason is also to provide tab-completer from the editor.
   ```typescript
-  // bad
-  const values = [];
+  // bad 
+  const user = new Object();
 
-  // good
-  const values = [0];
-
-  // good 
-  const values = ['', 0];
-
-  // good
-  const values: number[] = [];
-  ```
-
-- **Object**: Object must declare the type data from the interface or type. Because, typescript cannot define the type data used of the object except if it's handled by generic. The other reason is also to provide tab-completer from the editor.
-  ```typescript
   // bad 
   const user = {};
 
