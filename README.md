@@ -143,7 +143,7 @@ This style guide was created to provide standards based on the fundamentals of R
   ```
 
 ## Function
-- **Used For**: Component, Helper, Custom Hooks and Service.
+- **Used For**: Components, Helpers, Custom Hooks and Services.
 - **Naming Convention**: use `camelCase` for function.
   ```typescript
   // bad
@@ -158,7 +158,7 @@ This style guide was created to provide standards based on the fundamentals of R
   ```
 
 ## Arrow Function
-- **User For**: Callbacks.
+- **Used For**: Callbacks.
 - **Single Line**: Don't use block scope for arrow function that only have one line.
   ```typescript
   // bad
@@ -169,7 +169,7 @@ This style guide was created to provide standards based on the fundamentals of R
   // good
   return <Input {...props} onFocus={() => callSomething()} />
   ```
-- **Immediate Return**: Don't use block to return value if only have one line logic or return.
+- **Immediate Return**: Don't use block scope to return value if only have one line logic or return.
   ```typescript
   // bad
   return <MyComponent {...props} value={() => {
