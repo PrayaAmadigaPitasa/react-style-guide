@@ -34,3 +34,38 @@ export default function Text({extensionKeyProps, children, ...props}: TextProps)
   return <Text {...props}>{children}</Text>
 }
 ```
+
+## Modules
+- **Aliases**: Use `@` prefix for the module aliases. E.g., `@components`
+- **Export**: All functions and components must exported and handled in index.ts until reach it's domain. Because, to implement aliases we need to access all exported functions and components from it's domain.
+```typescript
+// File Input Component (./src/components/inputs/Input.tsx)
+
+export default function Input() {
+
+}
+
+// File index in inputs folder (./src/components/inputs/index.ts)
+
+export * from './Input';
+export * from './InputSearch';
+
+export {default as Input} from './Input';
+export {default as InputSearch} from './InputSearch';
+
+// File index in components folder (./src/components/index.ts)
+
+export * from './inputs';
+export * from './buttons';
+export * from './modals';
+```
+- **Import**: Sort import module based on precedence. (react -> react-native (mobile) -> library -> aliases -> folder -> file).
+```typescript
+import React from 'react';
+import {Input} from 'react-native';
+import Modal from 'react-native-modal';
+import {Button} from '@components';
+import {getUserData} from '@services';
+import {LocationListProps} from './location';
+import {MapDetail} from './MapDetail';
+```
