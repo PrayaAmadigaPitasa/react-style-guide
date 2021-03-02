@@ -40,13 +40,11 @@ This style guide was created to provide standards based on the fundamentals of R
 - **Export**: All functions and components must exported and handled in index.ts until reach it's domain. Because, to implement aliases we need to access all exported functions and components from it's domain.
   ```typescript
   // File Input Component (./src/components/inputs/Input.tsx)
-
   export default function Input() {
 
   }
 
   // File index in inputs folder (./src/components/inputs/index.ts)
-
   export * from './Input';
   export * from './InputSearch';
 
@@ -54,7 +52,6 @@ This style guide was created to provide standards based on the fundamentals of R
   export {default as InputSearch} from './InputSearch';
 
   // File index in components folder (./src/components/index.ts)
-
   export * from './inputs';
   export * from './buttons';
   export * from './modals';
@@ -63,11 +60,11 @@ This style guide was created to provide standards based on the fundamentals of R
   ```typescript
   import React from 'react';
   import {Input} from 'react-native';
-  import Modal from 'react-native-modal';
+  import {ModalProps} from 'react-native-modal';
   import {Button} from '@components';
   import {getUserData} from '@services';
   import {LocationListProps} from './location';
-  import {MapDetail} from './MapDetail';
+  import MapDetail from './MapDetail';
   ```
 
 ## Variable
@@ -105,15 +102,92 @@ This style guide was created to provide standards based on the fundamentals of R
 - **Var**: Don't use `var` for the variable. Because, var variable can be accessed from outside the block and hard to track and cause confusion.
 
 ## Types
-- **String**: use `string` instead of `String`
+- **String, Number and Boolean**: Use `string|number|boolean` instead of `String|Number|Boolean`
   ```typescript
   // good
   const name = "Charlotte"
 
   // good
-  // declare the type is optional for string, because typescript will automatically declare the type data to string when the initial value is string.
+  // declaring the type is optional, because typescript will automatically declare the type same as the type of initial value.
   const name: string = "Charlotte"
 
   // bad
   const name: String = "Charlotte"
+  ```
+
+- **Array**: Declare the type data array if the initial value is empty.
+  ```typescript
+  // bad
+  const values = [];
+
+  // good
+  const values = [0];
+
+  // good 
+  const values = ['', 0];
+
+  // good
+  const values: number[] = [];
+  ```
+
+- **Object**: Object must declare the type data from the interface or type. Because, typescript cannot define the type data used of the object except if it's handled by generic. The other reason is also to provide tab-completer from the editor.
+  ```typescript
+  // bad 
+  const user = {};
+
+  // bad
+  const user = {id: 0, name: 'Charlotte'};
+
+  // good
+  const user: User = {id: 0, name: 'Charlotte'};
+  ```
+
+## Function
+- **Used For**: Component, Helper, Custom Hooks and Service.
+- **Naming Convention**: use `camelCase` for function.
+  ```typescript
+  // bad
+  function DoSomething() {
+
+  }
+
+  // good
+  function doSomething() {
+
+  }
+  ```
+
+## Arrow Function
+- **User For**: Callbacks.
+- **Single Line**: Don't use block scope for arrow function that only have one line.
+  ```typescript
+  // bad
+  return <Input {...props} onFocus={() => {
+    callSomething();
+  }} />
+
+  // good
+  return <Input {...props} onFocus={() => callSomething()} />
+  ```
+- **Immediate Return**: Don't use block to return value if only have one line logic or return.
+  ```typescript
+  // bad
+  return <MyComponent {...props} value={() => {
+    return sum;
+  }} />
+
+  // good
+  return <MyComponent {...props} value={() => sum} />
+
+  // bad
+  return <MyComponent {...props} value={(count) => {
+    if (timestamp < now) {
+      return previousCount;
+    } else {
+      return count;
+    }
+  }} />
+
+  // good
+  return <MyComponent {...props} value={(count) => timestamp < now ? previousCount : count} />
   ```
