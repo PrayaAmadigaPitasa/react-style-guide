@@ -56,10 +56,9 @@ This style guide was created to provide standards based on the fundamentals of R
   export * from './buttons';
   export * from './modals';
   ```
-- **Import**: Sort import module based on precedence. (react -> react-native (mobile) -> library -> aliases -> folder -> file).
+- **Import**: Sort import module based on precedence. (react -> external library -> aliases -> folder -> file).
   ```typescript
   import React from 'react';
-  import {Input} from 'react-native';
   import {ModalProps} from 'react-native-modal';
   import {Button} from '@components';
   import {getUserData} from '@services';
