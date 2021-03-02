@@ -115,21 +115,34 @@ This style guide was created to provide standards based on the fundamentals of R
   const name: String = "Charlotte"
   ```
 - **Type**: 
+  - **Used for**: Abstract Type, Static String Values, Combine Multiple Type Data.
   - **Basic**: Use `PascalCase` for the syntax. And use `snake_case` for type string values.
     ```typescript
     // good
-    export type NavigationKey = ...;
+    type NavigationKey = ...;
 
     // bad
-    export type NAVIGATION_KEY = ...;
+    type NAVIGATION_KEY = ...;
 
     // good
-    export type NavigationKey = 'auth_login' | 'auth_register';
+    type NavigationKey = 'auth_login' | 'auth_register';
 
     // bad
-    export type NavigationKey = 'authLogin' | 'authRegister';
+    type NavigationKey = 'authLogin' | 'authRegister';
     ```
+  - **Abstraction**: Create type data abstract.
+    ```typescript
+    // good
+    type Keys = 'key_1' | 'key_2' | 'key_3';
 
+    type KeyMap<V> = {[K in Keys]: V};
+
+    const maps: KeyMap<string> = {
+      key_1: 'value_1',
+      key_2: 'value_2',
+      key_3: 'value_3',
+    }
+    ```
 - **Array**: 
   - **Basic**: Use literal syntaxt to create array and declare the type data array if the initial value is empty.
     ```typescript
