@@ -116,11 +116,11 @@ This style guide was created to provide standards based on the fundamentals of R
   ```
 
 - **Array**: 
-  - **Basic**: Use literal syntaxt to crea array and declare the type data array if the initial value is empty.
+  - **Basic**: Use literal syntaxt to create array and declare the type data array if the initial value is empty.
     ```typescript
     // bad
     const values = new Array();
-    
+
     // bad
     const values = [];
 
@@ -140,6 +140,13 @@ This style guide was created to provide standards based on the fundamentals of R
 
     // good
     const values = Array.from({length: 5}, (_, index) => index);
+
+    // bad
+    const values = [];
+
+    for (let index = 0; index < 5; index++) {
+      values.push(index);
+    }
     ```
 - **Object**: Use literal syntax to create objects and object must declare the type data from the interface or type. Because, typescript cannot define the type data used of the object except if it's handled by generic. The other reason is also to provide tab-completer from the editor.
   ```typescript
