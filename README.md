@@ -212,3 +212,31 @@ This style guide was created to provide standards based on the fundamentals of R
   // good
   return <MyComponent {...props} value={(count) => timestamp < now ? previousCount : count} />
   ```
+
+## Translations
+- **Keys**: Keys must be defined first through type or interface. Because it will be used for all locale and.
+- **Structures**: Key are grouped based on scope, feature and function. (general -> category feature -> feature -> function -> specific function -> properties).
+  ```typescript
+  // good 
+  global_error: "Error"
+  global_login: "Login"
+
+  // good
+  input_search_label: "Search"
+  input_search_placeholder: "ex. Chocolate" 
+
+  // bad
+  // label and placeholder is part property of input. search is a specific function of input.
+  input_label_search: "Search"
+  input_placeholder_search: "ex. Chocolate"
+
+  // good
+  // auth is category feature where login is the specific feature of auth.
+  auth_login_input_username_placeholder: "Username"
+  auth_login_input_password_placeholder: "Password"
+
+  // good
+  // in this example login is dissapeared, this mean all input username and password for auth will use this translation as default.
+  auth_input_username_placeholder: "Username"
+  auth_input_password_placeholder: "Password"
+  ```
