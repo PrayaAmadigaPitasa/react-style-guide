@@ -114,6 +114,21 @@ This style guide was created to provide standards based on the fundamentals of R
   // bad
   const name: String = "Charlotte"
   ```
+- **Type**: 
+  - **Basic**: Use `PascalCase` for the syntax. And use `snake_case` for type string values.
+    ```typescript
+    // good
+    export type NavigationKey = ...;
+
+    // bad
+    export type NAVIGATION_KEY = ...;
+
+    // good
+    export type NavigationKey = 'auth_login' | 'auth_register';
+
+    // bad
+    export type NavigationKey = 'authLogin' | 'authRegister';
+    ```
 
 - **Array**: 
   - **Basic**: Use literal syntaxt to create array and declare the type data array if the initial value is empty.
