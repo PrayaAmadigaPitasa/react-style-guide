@@ -103,3 +103,17 @@ This style guide was created to provide standards based on the fundamentals of R
   let count = 0;
   ```
 - **Var**: Don't use `var` for the variable. Because, var variable can be accessed from outside the block and hard to track and cause confusion.
+
+## Types
+- **String**: use `string` instead of `String`
+  ```typescript
+  // good
+  const name = "Charlotte"
+
+  // good
+  // declare the type is optional for string, because typescript will automatically declare the type data to string when the initial value is string.
+  const name: string = "Charlotte"
+
+  // bad
+  const name: String = "Charlotte"
+  ```
