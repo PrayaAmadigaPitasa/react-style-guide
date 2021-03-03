@@ -115,7 +115,7 @@ This style guide was created to provide standards based on the fundamentals of R
   const name: String = "Charlotte"
   ```
 - **Type**: 
-  - **Used for**: Abstract Type, Static String Values, Combine Multiple Type Data.
+  - **Used For**: Abstract Type, Static String Values, Combine Multiple Type Data.
   - **Basic**: Use `PascalCase` for the syntax. And use `snake_case` for type string values.
     ```typescript
     // good
@@ -139,6 +139,31 @@ This style guide was created to provide standards based on the fundamentals of R
       key_2: 'value_2',
       key_3: 'value_3',
     }
+    ```
+- **Interface**:
+  - **Used For**: Custom Type Data Object.
+  - **Basic**: Use `PascalCase` for the syntax. And use `camelCase` for the properties.
+    ```typescript
+    // good
+    interface ButtonProps {
+      label: string;
+      labelStyle?: TextStyle;
+      onPress(): void;
+    }
+
+    // bad
+    interface buttonProps {
+      label: string;
+      labelStyle?: TextStyle;
+      onPress(): void;
+    } 
+
+    // bad
+    interface ButtonProps {
+      Label: string;
+      LabelStyle?: TextStyle;
+      OnPress(): void;
+    } 
     ```
 - **Array**: 
   - **Basic**: Use literal syntaxt to create array and declare the type data array if the initial value is empty.
