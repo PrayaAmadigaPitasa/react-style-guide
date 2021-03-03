@@ -119,16 +119,13 @@ This style guide was created to provide standards based on the fundamentals of R
   - **Basic**: Use `PascalCase` for the syntax. And use `snake_case` for type string values.
     ```typescript
     // good
-    type NavigationKey = ...;
-
-    // bad
-    type NAVIGATION_KEY = ...;
-
-    // good
     type NavigationKey = 'auth_login' | 'auth_register';
 
     // bad
     type NavigationKey = 'authLogin' | 'authRegister';
+
+    // bad
+    type NAVIGATION_KEY = 'authLogin' | 'authRegister';
     ```
   - **Abstraction**: Create type data abstract.
     ```typescript
@@ -175,6 +172,10 @@ This style guide was created to provide standards based on the fundamentals of R
     for (let index = 0; index < 5; index++) {
       values.push(index);
     }
+    ```
+  - **Combine Multiple Type Data**: Type can be used to combine multiple type data.
+    ```typescript
+    type ImageSource = string | number;
     ```
 - **Object**: Use literal syntax to create objects and object must declare the type data from the interface or type. Because, typescript cannot define the type data used of the object except if it's handled by generic. The other reason is also to provide tab-completer from the editor.
   ```typescript
