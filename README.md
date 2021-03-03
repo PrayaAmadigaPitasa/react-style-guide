@@ -140,6 +140,12 @@ This style guide was created to provide standards based on the fundamentals of R
       key_3: 'value_3',
     }
     ```
+  - **Exception**: Sometimes type structure and values adjusted from outsource. E.g. icon names.
+    ```typescript
+    // good
+    // type adjusted from icon name svg files.
+    type IconType = 'chevron-right' | 'ellipsis-h' | 'ellipsis-v';
+    ```
 - **Interface**:
   - **Used For**: Custom Type Data Object.
   - **Basic**: Use `PascalCase` for the syntax. And use `camelCase` for the properties.
@@ -164,6 +170,16 @@ This style guide was created to provide standards based on the fundamentals of R
       LabelStyle?: TextStyle;
       OnPress(): void;
     } 
+    ```
+    **Exception**: Sometimes we need to adjust type data from outsource. E.g. Responses API.
+    ```typescript
+    // good
+    // data structure adjusted from response api.
+    interface UserDataResponse {
+      id: number;
+      username: string;
+      is_verified: boolean;
+    }
     ```
 - **Array**: 
   - **Basic**: Use literal syntaxt to create array and declare the type data array if the initial value is empty.
